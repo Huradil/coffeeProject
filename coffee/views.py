@@ -53,6 +53,8 @@ class MenuCategoryListCreateAPIView(generics.ListCreateAPIView):
         category = None
         if category_name:
             category = Category.objects.get(name=category_name)
+        else:
+            category=get_object_or_404(Category,pk=self.request.data.get('category'))
         serializer.save(category=category)
 
 
