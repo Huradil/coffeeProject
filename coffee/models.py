@@ -1,4 +1,5 @@
 from django.db import models
+from account.models import User
 
 
 class Category(models.Model):
@@ -32,11 +33,10 @@ class Table(models.Model):
 
 
 class Staff(models.Model):
+    user=models.OneToOneField(User,related_name='staff',on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     image = models.ImageField(null=True)
     position = models.CharField(max_length=50)
-    number = models.CharField(max_length=12)
-    email = models.EmailField()
 
     def __str__(self):
         return self.name

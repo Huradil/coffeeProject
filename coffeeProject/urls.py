@@ -43,5 +43,6 @@ swagger_urlpatterns=[
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include('coffee.urls'))
+    path('api/',include('coffee.urls')),
+    path('api/',include('account.urls')),
 ]+swagger_urlpatterns+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
