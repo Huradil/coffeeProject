@@ -7,6 +7,7 @@ from rest_framework import viewsets,status
 from .models import Menu,Category,Table,Staff
 from .serializers import CategorySerializer,TableSerializer,StaffSerializer,MenuSerializer
 from .permissions import IsUserOrIsAdmin
+from account.models import User
 
 
 class CategoryListCreateAPIView(generics.ListCreateAPIView):
@@ -70,5 +71,6 @@ class MenuRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Menu.objects.all()
     serializer_class = MenuSerializer
     permission_classes = [IsUserOrIsAdmin]
+
 
 

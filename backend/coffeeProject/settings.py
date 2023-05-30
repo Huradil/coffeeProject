@@ -19,11 +19,8 @@ env=environ.Env()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-<<<<<<< HEAD
-=======
 environ.Env.read_env(BASE_DIR / '.env')
 
->>>>>>> cfd075a882a23bf39f9c89833ddd5a5dd120c62b
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -31,9 +28,10 @@ environ.Env.read_env(BASE_DIR / '.env')
 SECRET_KEY = 'django-insecure-c3658zgnu+k*yp4@gk-i^5h&)@#j1hif8k#5(@+k&i7vxwku8)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = int(env('DEBUG'))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = env('ALLOWED_HOSTS').split(',')
+
 
 # Application definition
 
@@ -85,6 +83,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'coffeeProject.wsgi.application'
 
+
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
@@ -98,6 +97,7 @@ DATABASES = {
         'PASSWORD': env('DB_PASSWORD'),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -117,6 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
@@ -128,31 +129,19 @@ USE_I18N = True
 
 USE_TZ = True
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-<<<<<<< HEAD
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-=======
 STATIC_ROOT=BASE_DIR / 'static'
 MEDIA_URL='media/'
 MEDIA_ROOT=BASE_DIR / 'media'
->>>>>>> cfd075a882a23bf39f9c89833ddd5a5dd120c62b
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
-#
-# CORS_ALLOWED_ORIGINS = [
-#     "http://localhost:3000",
-#     "http://127.0.0.1:3000",
-# ]
-CORS_ALLOW_ALL_ORIGINS = True
-=======
 AUTH_USER_MODEL = 'account.User'
 
 REST_FRAMEWORK = {
@@ -192,4 +181,3 @@ CORS_ALLOW_HEADERS = [
 ]
 
 
->>>>>>> cfd075a882a23bf39f9c89833ddd5a5dd120c62b

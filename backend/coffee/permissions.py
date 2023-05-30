@@ -9,3 +9,4 @@ class IsUserOrIsAdmin(permissions.BasePermission):
         elif request.user and request.user.is_authenticated and request.user.role=='admin':
             return True
         return False
+
